@@ -3,228 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esha Muliyasiya | Clinical Portfolio</title>
+    <title>Esha Muliyasiya | Clinical & Bio Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #0ea5e9;
-            --slate-900: #0f172a;
-            --slate-100: #f1f5f9;
-            --white: #ffffff;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.3);
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+            --glass: blur(12px) saturate(180%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; } /* Custom Cursor Included */
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Custom Interactive Cursor --- */
+        #cursor {
+            width: 20px; height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        /* --- Layout Structure --- */
+        .dashboard {
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 280px 1fr;
             min-height: 100vh;
         }
 
-        /* --- Sidebar --- */
+        /* --- Sidebar Navigation (Glass) --- */
         aside {
-            background: var(--white);
-            border-right: 1px solid var(--slate-100);
-            padding: 40px 24px;
+            background: var(--card-bg);
+            backdrop-filter: var(--glass);
+            border-right: 1px solid var(--border);
+            padding: 40px 30px;
             position: sticky;
             top: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            z-index: 100;
+            justify-content: space-between;
         }
 
-        .profile-id {
-            background: var(--slate-900);
-            color: white;
-            padding: 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-        }
-
-        .profile-id h1 { font-size: 1.1rem; }
-        .profile-id p { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--primary); }
-
-        /* --- Main Content --- */
-        main { padding: 80px 60px; }
-
-        /* --- HERO SECTION WITH TYPEWRITER --- */
-        .hero {
-            margin-bottom: 60px;
-            min-height: 200px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--slate-900);
-            letter-spacing: -2px;
-            margin-bottom: 10px;
-        }
-
-        .typewriter-container {
-            font-size: 1.5rem;
-            color: #64748b;
-            font-weight: 500;
+        .brand { font-weight: 800; font-size: 1.2rem; color: var(--accent); letter-spacing: -1px; }
+        
+        .nav-links { list-style: none; margin-top: 50px; }
+        .nav-links li { margin-bottom: 10px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-weight: 600;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* The Cursor Effect */
-        #typewriter-text {
-            color: var(--primary);
-            font-weight: 700;
-            border-right: 3px solid var(--primary);
-            padding-right: 5px;
-            animation: blink 0.7s infinite;
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent);
+            box-shadow: inset 0 0 10px var(--accent-glow);
         }
 
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
+        /* --- Main Workspace --- */
+        main { padding: 60px 5%; }
 
-        /* --- Bento Grid Elements --- */
-        .bento-grid {
+        /* --- Hero Section --- */
+        .hero { margin-bottom: 80px; }
+        .hero h2 { font-size: 0.9rem; text-transform: uppercase; color: var(--accent); letter-spacing: 4px; font-weight: 800; margin-bottom: 10px; }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; line-height: 1; margin-bottom: 20px; letter-spacing: -3px; }
+        
+        .typewriter-box {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            height: 40px;
+        }
+        #typewriter { color: var(--text-main); border-right: 3px solid var(--accent); }
+
+        /* --- Bento Grid System --- */
+        .grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 24px;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: minmax(180px, auto);
+            gap: 20px;
         }
 
         .card {
-            background: white;
-            padding: 32px;
-            border-radius: 32px;
-            border: 1px solid var(--slate-100);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            background: var(--card-bg);
+            backdrop-filter: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 30px;
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-header {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
 
-        .tag {
-            background: var(--slate-100);
-            padding: 6px 12px;
-            border-radius: 8px;
+        .col-4 { grid-column: span 4; }
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-6 { grid-column: span 6; }
+
+        /* --- Components --- */
+        .card-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--accent); margin-bottom: 15px; display: block; }
+        
+        .stat { font-size: 2.5rem; font-weight: 800; display: block; color: var(--accent); }
+        
+        .skill-pill {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin: 4px;
-            display: inline-block;
+            margin: 0 8px 8px 0;
+            border: 1px solid var(--border);
         }
 
-        @media (max-width: 1024px) {
-            body { grid-template-columns: 1fr; }
+        .experience-row {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .experience-row:last-child { border: none; }
+
+        /* --- Visual Enhancements --- */
+        .glow-circle {
+            position: absolute;
+            width: 150px; height: 150px;
+            background: var(--accent);
+            filter: blur(100px);
+            opacity: 0.1;
+            top: -50px; right: -50px;
+        }
+
+        @media (max-width: 1100px) {
+            .dashboard { grid-template-columns: 1fr; }
             aside { display: none; }
-            main { padding: 40px 20px; }
-            .hero h1 { font-size: 2.5rem; }
-            .bento-grid { grid-template-columns: 1fr; }
+            .col-4, .col-2, .col-3 { grid-column: span 6; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <aside>
-        <div class="profile-id">
-            <h1>ESHA MULIYASIYA</h1>
-            <p>BIO_ID: 60523_UIC</p>
-        </div>
-        <div style="flex-grow: 1;">
-            <p style="font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 20px;">Navigation</p>
-            <p style="margin-bottom: 15px; font-weight: 600; color: var(--primary);">01. Dashboard</p>
-            <p style="margin-bottom: 15px; font-weight: 600; color: #64748b;">02. Experience</p>
-            <p style="margin-bottom: 15px; font-weight: 600; color: #64748b;">03. Skills</p>
-        </div>
-        <div style="font-size: 0.8rem; color: #94a3b8;">
-            <p><i class="fa-solid fa-envelope"></i> emuli@uic.edu</p>
-            <p><i class="fa-solid fa-phone"></i> +1 630-642-3968</p>
-        </div>
-    </aside>
+    <div id="cursor"></div>
 
-    <main>
-        <section class="hero">
-            <h1>Esha Muliyasiya</h1>
-            <div class="typewriter-container">
-                I am a&nbsp;<span id="typewriter-text"></span>
-            </div>
-        </section>
+    <div class="dashboard">
+        <aside>
+            <div class="brand">SYSTEM.ESHA</div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active"><i class="fa-solid fa-grid-2"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fa-solid fa-flask-vial"></i> Lab Work</a></li>
+                    <li><a href="#"><i class="fa-solid fa-stethoscope"></i> Clinical</a></li>
+                    <li><a href="#"><i class="fa-solid fa-dna"></i> Research</a></li>
+                </ul>
+            </nav>
 
-        <div class="bento-grid">
-            <div class="card">
-                <h2 class="section-header"><i class="fa-solid fa-user-doctor" style="color:var(--primary)"></i> Profile</h2>
-                <p style="line-height: 1.7; color: #475569;">
-                    Self-driven Biology student at UIC with a verified track record in clinical observation and laboratory research. 
-                    I bridge the gap between rigorous scientific protocol and compassionate community advocacy.
-                </p>
+            <div class="contact-card">
+                <p style="font-size: 0.8rem; color: var(--text-dim);">emuli@uic.edu</p>
+                <p style="font-weight: 700;">+1 630 642 3968</p>
             </div>
+        </aside>
 
-            <div class="card">
-                <h2 class="section-header"><i class="fa-solid fa-flask" style="color:var(--primary)"></i> Skills</h2>
-                <div class="tag">Laboratory Safety</div>
-                <div class="tag">Clinical Intake</div>
-                <div class="tag">Data Analysis</div>
-                <div class="tag">Multitasking</div>
-                <div class="tag">Fluent English</div>
-                <div class="tag">Fluent Hindi</div>
+        <main>
+            <section class="hero">
+                <h2>Clinical Portfolio 2026</h2>
+                <h1>Esha Muliyasiya</h1>
+                <div class="typewriter-box">
+                    Systemic Focus: <span id="typewriter"></span>
+                </div>
+            </section>
+
+            <div class="grid">
+                <div class="card col-4">
+                    <div class="glow-circle"></div>
+                    <span class="card-label">Terminal Summary</span>
+                    <p style="font-size: 1.2rem; font-weight: 500;">
+                        Self-driven Biology major at <span style="color:var(--accent)">UIC</span> with verified clinical observation experience. Bridging the gap between laboratory precision and human-centric medical advocacy.
+                    </p>
+                </div>
+
+                <div class="card col-2">
+                    <span class="card-label">Academics</span>
+                    <span class="stat">90.2%</span>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">High School Distinction Standing</p>
+                </div>
+
+                <div class="card col-6">
+                    <span class="card-label">Clinical Workflow</span>
+                    <div class="experience-row">
+                        <div>
+                            <h3 style="font-size: 1rem;">Emergency Dept. Observer</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-dim);">Ashirvad Hospital, Rajkot</p>
+                        </div>
+                        <span style="font-family: 'JetBrains Mono'; color: var(--accent);">AUG-NOV 2022</span>
+                    </div>
+                    <div class="experience-row">
+                        <div>
+                            <h3 style="font-size: 1rem;">Advocacy Volunteer</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-dim);">Leuva Patel Vikas Trust</p>
+                        </div>
+                        <span style="font-family: 'JetBrains Mono'; color: var(--accent);">JUL-DEC 2022</span>
+                    </div>
+                </div>
+
+                <div class="card col-3">
+                    <span class="card-label">Technical Matrix</span>
+                    <div class="skill-pill">Lab Safety</div>
+                    <div class="skill-pill">Microscopy</div>
+                    <div class="skill-pill">MS Excel</div>
+                    <div class="skill-pill">Data Entry</div>
+                    <div class="skill-pill">Aseptic Technique</div>
+                </div>
+
+                <div class="card col-3">
+                    <span class="card-label">Linguistic Stack</span>
+                    <div class="skill-pill">English (Native)</div>
+                    <div class="skill-pill">Gujarati (Fluent)</div>
+                    <div class="skill-pill">Hindi (Fluent)</div>
+                    <div class="skill-pill">French (Level A1)</div>
+                </div>
+
+                <div class="card col-6" style="background: linear-gradient(to right, var(--card-bg), rgba(56, 189, 248, 0.05));">
+                    <span class="card-label">Distinctions</span>
+                    <div style="display: flex; gap: 40px; align-items: center;">
+                        <div>
+                            <i class="fa-solid fa-award" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                            <p style="font-size: 0.8rem; font-weight: 700;">State Badminton Champion</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-microscope" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                            <p style="font-size: 0.8rem; font-weight: 700;">Science Olympiad Rank 3</p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-palette" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                            <p style="font-size: 0.8rem; font-weight: 700;">State Drawing Honor</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script>
-        const textElement = document.getElementById('typewriter-text');
+        // 1. Custom Cursor Movement
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // 2. Advanced Typewriter with Deleting Effect
+        const typeTarget = document.getElementById('typewriter');
         const phrases = [
-            "Biology Major @ UIC.",
-            "Pre-Medicine Track Student.",
-            "Clinical Observer.",
-            "Laboratory Researcher.",
-            "Public Health Advocate.",
-            "Badminton Champion."
+            "Biology Undergraduate @ UIC",
+            "Emergency Care Observer",
+            "Laboratory Technician",
+            "Public Health Advocate",
+            "Multilingual Communicator"
         ];
         
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 100;
+        let i = 0; let j = 0; let currentPhrase = ""; let isDeleting = false;
 
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
+        function loop() {
+            currentPhrase = phrases[i];
             if (isDeleting) {
-                // Remove character
-                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 50; // Faster when deleting
+                typeTarget.textContent = currentPhrase.substring(0, j - 1);
+                j--;
+                if (j === 0) { isDeleting = false; i = (i + 1) % phrases.length; }
             } else {
-                // Add character
-                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 100;
+                typeTarget.textContent = currentPhrase.substring(0, j + 1);
+                j++;
+                if (j === currentPhrase.length) { isDeleting = true; setTimeout(loop, 2000); return; }
             }
-
-            // Logic for switching states
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typeSpeed = 2000; // Pause at the end of the phrase
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500; // Pause before starting next phrase
-            }
-
-            setTimeout(type, typeSpeed);
+            setTimeout(loop, isDeleting ? 50 : 100);
         }
+        loop();
 
-        // Start the animation
-        document.addEventListener('DOMContentLoaded', type);
+        // 3. Reveal Animation on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = "translateY(30px)";
+            card.style.transition = "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
+            observer.observe(card);
+        });
     </script>
-
 </body>
 </html>
