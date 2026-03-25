@@ -3,343 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esha Muliyasiya | Pre-Medicine Portfolio</title>
+    <title>Esha Muliyasiya | Pre-Medical Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #004a99;
-            --accent: #00d2ff;
-            --bg-light: #f4f7f6;
-            --text-main: #2c3e50;
-            --glass: rgba(255, 255, 255, 0.8);
-            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            --medical-dark: #0f172a;
+            --medical-blue: #0ea5e9;
+            --medical-teal: #14b8a6;
+            --bg-soft: #f8fafc;
+            --white: #ffffff;
+            --text-main: #334155;
+            --text-dim: #64748b;
+            --glass: rgba(255, 255, 255, 0.9);
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.05);
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-soft);
             color: var(--text-main);
-            background-color: var(--bg-light);
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        h1, h2, h3 { font-family: 'Lexend', sans-serif; color: var(--medical-dark); }
 
         /* --- Navigation --- */
         nav {
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
+            width: 100%;
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
+            padding: 1rem 10%;
         }
 
+        .logo { font-weight: 700; color: var(--medical-blue); font-size: 1.2rem; }
         .nav-links a {
             text-decoration: none;
             color: var(--text-main);
-            margin-left: 30px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
-
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: var(--medical-blue); }
 
         /* --- Hero Section --- */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0, 74, 153, 0.8), rgba(0, 74, 153, 0.8)), 
-                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
+            padding: 160px 10% 100px;
+            background: radial-gradient(circle at top right, #e0f2fe, transparent), 
+                        radial-gradient(circle at bottom left, #f0fdfa, transparent);
+            text-align: left;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 { font-size: 4rem; margin: 0; letter-spacing: -1px; }
-        .hero p { font-size: 1.5rem; font-weight: 300; max-width: 800px; margin-top: 10px; }
-
-        /* --- Content Blocks --- */
-        .container { max-width: 1100px; margin: -100px auto 50px; position: relative; z-index: 10; padding: 20px; }
-
-        .section-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
-            opacity: 0; transform: translateY(30px); /* For Scroll Animation */
-        }
-
-        .section-card.reveal { opacity: 1; transform: translateY(0); }
-
-        h2 { color: var(--primary); font-size: 1.8rem; margin-top: 0; border-left: 5px solid var(--accent); padding-left: 15px; }
-
-        /* --- Education/Experience Timeline --- */
-        .timeline-item {
-            border-bottom: 1px solid #eee;
-            padding: 20px 0;
-            display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-        }
-        .timeline-item:last-child { border: none; }
-        .timeline-content h3 { margin: 0; color: #34495e; font-size: 1.1rem; }
-        .timeline-date { color: var(--primary); font-weight: 600; min-width: 150px; text-align: right; }
-
-        /* --- Skills Grid --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
         }
 
-        .skill-box {
-            background: #fdfdfd;
-            border: 1px solid #edf2f7;
-            padding: 25px;
-            border-radius: 15px;
-        }
+        .hero-content { max-width: 650px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero h1 span { color: var(--medical-blue); }
+        .hero p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 2rem; }
 
-        .skill-box i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
-
-        .tag {
-            display: inline-block;
-            background: var(--bg-light);
-            padding: 5px 12px;
-            border-radius: 6px;
-            margin: 4px;
-            font-size: 0.85rem;
-            color: var(--primary);
+        .btn-primary {
+            background: var(--medical-dark);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+        /* --- Container --- */
+        .container { padding: 80px 10%; }
+
+        .section-header { margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .section-header .line { width: 60px; height: 4px; background: var(--medical-teal); border-radius: 2px; }
+
+        /* --- Bento Grid / Cards --- */
+        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--medical-blue); }
+
+        /* Experience Items */
+        .col-8 { grid-column: span 8; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+
+        .exp-item { margin-bottom: 2rem; position: relative; padding-left: 20px; border-left: 2px solid var(--border); }
+        .exp-item h3 { font-size: 1.2rem; margin-bottom: 4px; }
+        .exp-item .meta { color: var(--medical-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        
+        /* --- Skills Dashboard --- */
+        .skill-group { margin-bottom: 1.5rem; }
+        .skill-group h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: var(--bg-soft);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
         }
 
         /* --- Achievement Badges --- */
-        .achievement-row {
+        .achievement-pill {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
         }
-
-        .badge {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            background: linear-gradient(135deg, #ffffff, #f0f7ff);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid #e1e8f0;
-        }
+        .achievement-pill i { font-size: 1.5rem; color: #f59e0b; }
 
         /* --- Footer --- */
         footer {
-            background: var(--primary);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
+            background: var(--medical-dark);
+            color: #94a3b8;
+            padding: 80px 10% 40px;
+            text-align: left;
         }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+        .footer-logo { color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; display: block; }
+        .footer-contact a { color: white; text-decoration: none; display: block; margin-bottom: 10px; }
 
-        .fab-contact {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 15px 20px; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .timeline-item { flex-direction: column; }
-            .timeline-date { text-align: left; margin-bottom: 5px; }
+        @media (max-width: 992px) {
+            .col-8, .col-4, .col-6 { grid-column: span 12; }
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero-content { margin-bottom: 50px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="font-weight: 700; color: var(--primary);">EM.PORTFOLIO</div>
+        <div class="logo">ESHA.M</div>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#education">Education</a>
             <a href="#clinical">Clinical</a>
+            <a href="#education">Education</a>
             <a href="#skills">Skills</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Esha Muliyasiya</h1>
-        <p>Aspiring Physician | Biology at UIC | Public Health Advocate</p>
+        <div class="hero-content">
+            <h1>Aspiring Physician & <span>Biology Researcher</span></h1>
+            <p>University of Illinois at Chicago student with a focus on clinical observation, laboratory precision, and child safety advocacy.</p>
+            <a href="mailto:emuli@uic.edu" class="btn-primary">
+                Contact Me <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="hero-visual">
+            <i class="fa-solid fa-dna" style="font-size: 150px; color: #e2e8f0; opacity: 0.5;"></i>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="section-card reveal" id="about">
-            <h2>Professional Profile</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
-                Self-driven and motivated <strong>Biology Student</strong> at the University of Illinois at Chicago. 
-                Equipped with hands-on laboratory experience and clinical observation skills. Committed to high-quality 
-                patient care and child advocacy, with a proven track record of multitasking in fast-paced healthcare environments.
-            </p>
+    <main class="container">
+        
+        <div class="grid">
+            <section class="card col-8" id="about">
+                <div class="section-header">
+                    <h2>Professional Profile</h2>
+                    <div class="line"></div>
+                </div>
+                <p style="font-size: 1.1rem; color: var(--text-main);">
+                    Self-driven Biology student at UIC with a verified track record of high academic performance. 
+                    Possesses hands-on experience in providing detailed clinical observations within emergency care 
+                    environments and performing rigorous laboratory protocols. Multilingual and highly adaptable, 
+                    I excel in team-based healthcare settings where multi-tasking and analytical problem-solving are critical.
+                </p>
+            </section>
+
+            <section class="card col-4" id="skills">
+                <div class="section-header">
+                    <h2>Core Skills</h2>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="skill-group">
+                    <h4>Clinical & Lab</h4>
+                    <div class="skill-tags">
+                        <span class="tag">ED Observation</span>
+                        <span class="tag">Lab Protocols</span>
+                        <span class="tag">Patient Intake</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="tag">English</span>
+                        <span class="tag">Gujarati</span>
+                        <span class="tag">Hindi</span>
+                        <span class="tag">French</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Software</h4>
+                    <div class="skill-tags">
+                        <span class="tag">MS Excel</span>
+                        <span class="tag">PowerPoint</span>
+                        <span class="tag">Windows/macOS</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card col-6" id="clinical">
+                <div class="section-header">
+                    <h2>Experience</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="exp-item">
+                    <span class="meta">Ashirvad Hospital | Aug 2022 - Nov 2022</span>
+                    <h3>Emergency Dept. Observer</h3>
+                    <p>Documented emergency care workflows and shadowed triage procedures in a high-volume environment.</p>
+                </div>
+
+                <div class="exp-item">
+                    <span class="meta">Leuva Patel Trust | Jul 2022 - Dec 2022</span>
+                    <h3>Volunteer Advocacy</h3>
+                    <p>Active participant in movements dedicated to eradicating violence against children and advocating for safety.</p>
+                </div>
+            </section>
+
+            <section class="card col-6" id="education">
+                <div class="section-header">
+                    <h2>Education</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="exp-item">
+                    <span class="meta">UIC | 2023 - 2027</span>
+                    <h3>B.S. in Biology</h3>
+                    <p>Focus on Biological Sciences. Member of ISA and UIC Badminton Club.</p>
+                </div>
+
+                <div class="exp-item">
+                    <span class="meta">Krishna International | 2020 - 2022</span>
+                    <h3>High School (CBSE)</h3>
+                    <p>Graduated with 90.2% academic standing. Focused on laboratory research and debates.</p>
+                </div>
+            </section>
+
+            <section class="col-12" style="grid-column: span 12;">
+                <div class="section-header">
+                    <h2>Distinctions</h2>
+                    <div class="line"></div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div class="achievement-pill">
+                        <i class="fa-solid fa-trophy"></i>
+                        <div>
+                            <strong>Inter-State Champion</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-dim);">Badminton Tournament Winner</p>
+                        </div>
+                    </div>
+                    <div class="achievement-pill">
+                        <i class="fa-solid fa-microscope"></i>
+                        <div>
+                            <strong>3rd Rank - Olympiad</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-dim);">Science Olympiad Distinction</p>
+                        </div>
+                    </div>
+                    <div class="achievement-pill">
+                        <i class="fa-solid fa-palette"></i>
+                        <div>
+                            <strong>State Level Honor</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-dim);">2nd Prize in Drawing Competition</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-
-        <div class="section-card reveal" id="education">
-            <h2>Academic Journey</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>University of Illinois at Chicago (UIC)</h3>
-                    <p>Bachelor of Science in Biology | Indian Student Association Member</p>
-                </div>
-                <div class="timeline-date">2023 — 2027</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>The Krishna International School</h3>
-                    <p>High School | CBSE Board | <strong>Score: 90.2%</strong></p>
-                </div>
-                <div class="timeline-date">2020 — 2022</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>The Rajkumar College</h3>
-                    <p>Foundational Education | MUN & History Club Participant</p>
-                </div>
-                <div class="timeline-date">2010 — 2020</div>
-            </div>
-        </div>
-
-        <div class="section-card reveal" id="clinical">
-            <h2>Clinical & Volunteerism</h2>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Ashirvad Hospital - ER Observer</h3>
-                    <p>Shadowed medical professionals during emergency procedures and critical patient intake. Gained 
-                       knowledge of fast-paced hospital protocols and diagnostic observations.</p>
-                </div>
-                <div class="timeline-date">Aug — Nov 2022</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Leuva Patel Vikas Trust - Child Advocate</h3>
-                    <p>Volunteered for a movement dedicated to child safety and eradicating violence against children.</p>
-                </div>
-                <div class="timeline-date">Jul — Dec 2022</div>
-            </div>
-        </div>
-
-        <div class="section-card reveal" id="skills">
-            <h2>Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-box">
-                    <i class="fa-solid fa-microscope"></i>
-                    <h3>Technical & Lab</h3>
-                    <span class="tag">Laboratory Safety</span>
-                    <span class="tag">Observation</span>
-                    <span class="tag">Windows/Mac OS</span>
-                    <span class="tag">MS Excel</span>
-                    <span class="tag">PowerPoint</span>
-                </div>
-                <div class="skill-box">
-                    <i class="fa-solid fa-hospital-user"></i>
-                    <h3>Interpersonal</h3>
-                    <span class="tag">Analytical Thinking</span>
-                    <span class="tag">Time Management</span>
-                    <span class="tag">Team Collaboration</span>
-                    <span class="tag">Multi-tasking</span>
-                </div>
-                <div class="skill-box">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Linguistics</h3>
-                    <span class="tag">English</span>
-                    <span class="tag">Gujarati</span>
-                    <span class="tag">Hindi</span>
-                    <span class="tag">French</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-card reveal">
-            <h2>Achievements</h2>
-            <div class="achievement-row">
-                <div class="badge">
-                    <i class="fa-solid fa-medal" style="color:#FFD700; font-size: 2rem;"></i>
-                    <p>Winner: Inter-State Badminton Tournament</p>
-                </div>
-                <div class="badge">
-                    <i class="fa-solid fa-brain" style="color:#004a99; font-size: 2rem;"></i>
-                    <p>3rd Rank: Science Olympiad</p>
-                </div>
-                <div class="badge">
-                    <i class="fa-solid fa-palette" style="color:#00d2ff; font-size: 2rem;"></i>
-                    <p>2nd Prize: State Drawing Competition</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a href="mailto:emuli@uic.edu" class="fab-contact">
-        <i class="fa-solid fa-envelope"></i>
-    </a>
+    </main>
 
     <footer>
-        <h2>Let's Connect</h2>
-        <p><i class="fa-solid fa-location-dot"></i> Oakbrook, Illinois (60523)</p>
-        <p><i class="fa-solid fa-phone"></i> +1 (630) 642-3968</p>
-        <p><i class="fa-solid fa-envelope"></i> emuli@uic.edu</p>
-        <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">
-            &copy; 2026 Esha Muliyasiya. Professional Portfolio.
+        <div class="footer-grid">
+            <div>
+                <span class="footer-logo">ESHA MULIYASIYA</span>
+                <p>Committed to the advancement of medicine through biological research and patient advocacy.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:emuli@uic.edu">emuli@uic.edu</a>
+                <a href="tel:+16306423968">+1 630 642 3968</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Location</h4>
+                <p>Oakbrook, Illinois<br>60523</p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #334155; padding-top: 20px; font-size: 0.8rem;">
+            &copy; 2026 Esha Muliyasiya | Pre-Med Portfolio
         </div>
     </footer>
 
-    <script>
-        window.addEventListener('scroll', reveal);
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                var revealPoint = 150;
-                if (revealTop < windowHeight - revealPoint) {
-                    reveals[i].classList.add('active');
-                    // Add visibility manually because of CSS
-                    reveals[i].style.opacity = "1";
-                    reveals[i].style.transform = "translateY(0)";
-                }
-            }
-        }
-        // Run once on load
-        reveal();
-    </script>
 </body>
 </html>
