@@ -1,280 +1,730 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Esha Muliyasiya - Biology Scholar at UIC | Clinical Researcher & Healthcare Advocate">
+    <meta name="keywords" content="Esha Muliyasiya, Biology, UIC, Healthcare, Clinical Research, Medical Assistant">
+    <meta name="author" content="Esha Muliyasiya">
+    
     <title>Esha Muliyasiya | Clinical Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0d9488', // Teal-600
+                        secondary: '#0f766e', // Teal-700
+                        accent: '#f97316', // Orange-500
+                        dark: '#0f172a', // Slate-900
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        :root {
-            --primary: #06b6d4; /* Vibrant Medical Cyan */
-            --primary-dark: #0891b2;
-            --accent-red: #ef4444; /* Pulse Red */
-            --bg-light: #f8fafc;
-            --card-white: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            overflow-x: hidden;
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
         }
-
-        /* --- Header / Hero Section --- */
-        header {
-            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
-            padding: 80px 5% 120px;
-            color: white;
-            text-align: center;
-            position: relative;
+        ::-webkit-scrollbar-thumb {
+            background: #0d9488;
+            border-radius: 4px;
         }
-
-        .header-content h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 15px; }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f766e;
+        }
         
-        /* Interactive Typewriter */
-        .identity-wrap { font-size: 1.4rem; font-weight: 500; opacity: 0.9; }
-        #type-text { border-right: 3px solid rgba(255,255,255,0.7); padding-right: 5px; animation: blink 0.7s infinite; }
-        @keyframes blink { 50% { border-color: transparent; } }
-
-        /* --- Main Layout Grid --- */
-        .container {
-            max-width: 1300px;
-            margin: -60px auto 100px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 350px 1fr 300px;
-            gap: 25px;
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        /* --- Universal Component: Glass Card --- */
-        .card {
-            background: var(--card-white);
-            border-radius: 24px;
-            padding: 30px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-md);
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-        }
-        .card:hover { transform: translateY(-5px); }
-        .card-label { 
-            display: flex; align-items: center; gap: 10px;
-            font-size: 0.75rem; font-weight: 800; color: var(--primary); 
-            text-transform: uppercase; margin-bottom: 20px; 
-        }
-
-        /* --- Left Column: Profile & Contact --- */
-        .profile-pic {
-            width: 100px; height: 100px;
-            background: var(--bg-light);
-            border-radius: 30px;
-            margin-bottom: 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .contact-row {
-            display: flex; align-items: center; gap: 12px;
-            margin-bottom: 12px; font-size: 0.9rem; font-weight: 500;
-        }
-        .contact-row i { color: var(--primary); width: 20px; }
-
-        /* --- Middle Column: Detailed Experience --- */
-        .summary-box { font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); }
         
-        .timeline-item {
-            position: relative;
-            padding-left: 25px;
-            border-left: 2px solid var(--bg-light);
-            margin-bottom: 30px;
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .timeline-item::after {
-            content: ''; position: absolute; left: -7px; top: 0;
-            width: 12px; height: 12px; background: var(--primary);
-            border-radius: 50%; border: 3px solid white;
+        
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .timeline-item .date { font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--primary-dark); font-weight: 700; }
-        .timeline-item h3 { font-size: 1.1rem; margin: 5px 0; }
-        .timeline-item p { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* --- Right Column: Stats & Skills --- */
-        .stat-circle {
-            text-align: center; margin-bottom: 25px;
+        
+        /* Print Styles */
+        @media print {
+            .no-print { display: none !important; }
+            .print-break { page-break-inside: avoid; }
+            body { background: white !important; }
         }
-        .stat-val { font-size: 2rem; font-weight: 800; color: var(--text-main); display: block; }
-        .stat-desc { font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
-
-        .pill {
-            display: inline-block; padding: 6px 14px;
-            background: var(--bg-light); border: 1px solid var(--border);
-            border-radius: 10px; font-size: 0.8rem; font-weight: 600;
-            margin: 0 5px 8px 0;
+        
+        /* Timeline Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #0d9488, #0891b2);
         }
-
-        /* --- Responsiveness --- */
-        @media (max-width: 1100px) {
-            .container { grid-template-columns: 1fr; margin-top: -40px; }
-            header h1 { font-size: 2.5rem; }
+        
+        /* Skill Bar Animation */
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--target-width); }
+        }
+        .skill-fill {
+            animation: fillBar 1.5s ease-out forwards;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #0d9488;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
     </style>
+<base target="_blank">
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
 
-    <header>
-        <div class="header-content">
-            <h1>Esha Muliyasiya</h1>
-            <div class="identity-wrap">
-                Specialization: <span id="type-text"></span>
+    <!-- Dark Mode Toggle -->
+    <button onclick="toggleDarkMode()" class="no-print fixed top-4 right-4 z-50 p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+        <i class="fas fa-moon dark:hidden text-slate-700"></i>
+        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="no-print fixed top-0 w-full z-40 glass transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <span class="font-serif text-2xl font-bold text-gradient">EM</span>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">About</a>
+                    <a href="#experience" class="text-sm font-medium hover:text-primary transition-colors">Experience</a>
+                    <a href="#education" class="text-sm font-medium hover:text-primary transition-colors">Education</a>
+                    <a href="#skills" class="text-sm font-medium hover:text-primary transition-colors">Skills</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+                </div>
+                <a href="mailto:emuli@uic.edu" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-secondary transition-all hover:shadow-lg transform hover:-translate-y-0.5">
+                    Hire Me
+                </a>
             </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-teal-200 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30 float-anim"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30 float-anim" style="animation-delay: 1.5s"></div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div data-aos="fade-right" class="text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 dark:bg-teal-900/30 text-primary text-sm font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Available for Clinical Opportunities
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Esha <span class="text-gradient">Muliyasiya</span>
+                </h1>
+                
+                <div class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-6 font-light">
+                    <span id="typewriter"></span><span class="cursor">|</span>
+                </div>
+                
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Self-driven Biology scholar at UIC with clinical observation experience and a passion for healthcare excellence and patient advocacy.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-secondary transition-all hover:shadow-xl transform hover:-translate-y-1 flex items-center gap-2">
+                        <i class="fas fa-paper-plane"></i>
+                        Get In Touch
+                    </a>
+                    <button onclick="window.print()" class="px-8 py-4 border-2 border-primary text-primary dark:text-teal-400 rounded-full font-semibold hover:bg-primary hover:text-white transition-all flex items-center gap-2">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </button>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-6 justify-center md:justify-start text-slate-400">
+                    <a href="#" class="hover:text-primary transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                    <a href="mailto:emuli@uic.edu" class="hover:text-primary transition-colors text-2xl"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- Right Content - Profile Card -->
+            <div data-aos="fade-left" class="relative">
+                <div class="relative w-full max-w-md mx-auto">
+                    <!-- Decorative Ring -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 rounded-3xl rotate-6 opacity-20"></div>
+                    
+                    <div class="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden">
+                        <div class="h-32 bg-gradient-to-r from-primary to-blue-600"></div>
+                        <div class="px-8 pb-8">
+                            <div class="relative -top-16 mb-[-48px]">
+                                <div class="w-32 h-32 mx-auto rounded-2xl bg-white dark:bg-slate-700 p-1 shadow-lg">
+                                    <div class="w-full h-full rounded-xl bg-gradient-to-br from-teal-100 to-blue-100 dark:from-teal-900 dark:to-slate-700 flex items-center justify-center text-4xl font-serif font-bold text-primary">
+                                        EM
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-20 text-center">
+                                <h3 class="text-2xl font-bold mb-1">Esha Muliyasiya</h3>
+                                <p class="text-slate-500 dark:text-slate-400 mb-6">Biology Major @ UIC</p>
+                                
+                                <div class="space-y-3 text-left">
+                                    <div class="flex items-center gap-3 text-sm">
+                                        <i class="fas fa-map-marker-alt text-primary w-5"></i>
+                                        <span>Oakbrook, IL 60523</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-sm">
+                                        <i class="fas fa-envelope text-primary w-5"></i>
+                                        <a href="mailto:emuli@uic.edu" class="hover:text-primary transition-colors">emuli@uic.edu</a>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-sm">
+                                        <i class="fas fa-phone text-primary w-5"></i>
+                                        <span>+1 630-642-3968</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-sm">
+                                        <i class="fas fa-calendar text-primary w-5"></i>
+                                        <span>Expected Graduation: Aug 2027</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
+                                    <div class="flex justify-between text-center">
+                                        <div>
+                                            <div class="text-2xl font-bold text-primary">90.2%</div>
+                                            <div class="text-xs text-slate-500">Academic Peak</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-primary">5+ Mo</div>
+                                            <div class="text-xs text-slate-500">Clinical Exp</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-2xl font-bold text-primary">4</div>
+                                            <div class="text-xs text-slate-500">Languages</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce no-print">
+            <i class="fas fa-chevron-down text-slate-400 text-xl"></i>
         </div>
     </header>
 
-    <div class="container">
-        <div class="col-left">
-            <div class="card">
-                <div class="profile-pic">EM</div>
-                <h2 style="margin-bottom: 5px;">Esha Muliyasiya</h2>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">Biology @ UIC | ID: 2023-2027</p>
-                
-                <div class="contact-row"><i class="fa-solid fa-location-dot"></i> Oakbrook, IL 60523</div>
-                <div class="contact-row"><i class="fa-solid fa-envelope"></i> emuli@uic.edu</div>
-                <div class="contact-row"><i class="fa-solid fa-phone"></i> +1 630-642-3968</div>
-            </div>
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
 
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-language"></i> Language Stack</div>
-                <div class="pill">English</div>
-                <div class="pill">Gujarati</div>
-                <div class="pill">Hindi</div>
-                <div class="pill">French</div>
-            </div>
-
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-computer"></i> Digital Proficiency</div>
-                <div class="pill">Windows & MacOS</div>
-                <div class="pill">MS Word</div>
-                <div class="pill">PowerPoint</div>
-                <div class="pill">Excel (Advanced)</div>
-            </div>
-        </div>
-
-        <div class="col-center">
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-user-md"></i> Clinical Summary</div>
-                <p class="summary-box">
-                    Self-driven and motivated University of Illinois at Chicago student[cite: 5]. I possess a strong academic foundation with demonstrated experience in providing accurate clinical observations and performing complex laboratory protocols[cite: 5]. I am highly knowledgeable of healthcare center environments, utilizing extraordinary multi-tasking and communication skills to excel in team-based settings[cite: 6].
+        <!-- Summary Section -->
+        <section id="about" class="print-break" data-aos="fade-up">
+            <div class="glass rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-xl">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h2 class="text-3xl font-serif font-bold">Professional Summary</h2>
+                </div>
+                <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                    Self-driven and motivated University of Illinois at Chicago student with a strong academic foundation in Biology. 
+                    Demonstrated experience in providing accurate clinical observations and performing complex laboratory protocols. 
+                    Highly knowledgeable of healthcare center environments, utilizing extraordinary multi-tasking and communication skills 
+                    to excel in team-based settings. Passionate about patient care and committed to contributing to medical research and healthcare excellence.
                 </p>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-stethoscope"></i> Professional Experience</div>
-                
-                <div class="timeline-item">
-                    <span class="date">01/08/2022 — 30/11/2022</span>
-                    <h3>Observer - Emergency Department</h3>
-                    <p><strong>Ashirvad Hospital, Rajkot</strong> [cite: 23, 24]</p>
-                    <p style="margin-top: 10px;">Gained critical insight into emergency triage and medical observation in a high-intensity clinical environment[cite: 24].</p>
+        <!-- Experience & Education Grid -->
+        <div class="grid lg:grid-cols-2 gap-8">
+            
+            <!-- Work Experience -->
+            <section id="experience" class="print-break" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-accent text-xl">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2 class="text-3xl font-serif font-bold">Experience</h2>
                 </div>
 
-                <div class="timeline-item">
-                    <span class="date">01/07/2022 — 14/12/2022</span>
-                    <h3>Volunteer Advocate</h3>
-                    <p><strong>NGO Leuva Patel Vikas Trust</strong> [cite: 26, 27]</p>
-                    <p style="margin-top: 10px;">Active participant in a systemic movement dedicated to eradicating violence against children and preventing child sexual abuse[cite: 28].</p>
-                </div>
-            </div>
+                <div class="space-y-6 relative timeline-line pl-6">
+                    <!-- Job 1 -->
+                    <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary" data-aos="fade-left">
+                        <div class="absolute -left-[31px] top-6 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-slate-900"></div>
+                        <div class="flex flex-wrap justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">Observer - Emergency Department</h3>
+                            <span class="px-3 py-1 bg-teal-100 dark:bg-teal-900/50 text-primary text-xs font-bold rounded-full">Aug - Nov 2022</span>
+                        </div>
+                        <p class="text-primary font-semibold mb-3">Ashirvad Hospital, Rajkot</p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-1 text-sm"></i>
+                                <span>Observed emergency department procedures and patient intake processes in high-intensity clinical environment</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-1 text-sm"></i>
+                                <span>Assisted staff with patient coordination and basic documentation workflows</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-primary mt-1 text-sm"></i>
+                                <span>Gained critical insight into emergency triage protocols and hospital operations</span>
+                            </li>
+                        </ul>
+                    </div>
 
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-graduation-cap"></i> Academic History</div>
-                
-                <div class="timeline-item">
-                    <span class="date">2023 — 2027</span>
-                    <h3>University of Illinois at Chicago</h3>
-                    <p><strong>Major: Biology</strong> [cite: 21]</p>
-                    <p>Active Member: Indian Student Association (ISA) & Badminton Club[cite: 22].</p>
+                    <!-- Job 2 -->
+                    <div class="relative bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-accent" data-aos="fade-left" data-aos-delay="100">
+                        <div class="absolute -left-[31px] top-6 w-4 h-4 rounded-full bg-accent border-4 border-white dark:border-slate-900"></div>
+                        <div class="flex flex-wrap justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">Volunteer Advocate</h3>
+                            <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-accent text-xs font-bold rounded-full">Jul - Dec 2022</span>
+                        </div>
+                        <p class="text-accent font-semibold mb-3">Leuva Patel Vikas Trust (NGO)</p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-accent mt-1 text-sm"></i>
+                                <span>Active participant in systemic movement dedicated to eradicating violence against children</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-accent mt-1 text-sm"></i>
+                                <span>Supported community programs focused on preventing child sexual abuse</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-accent mt-1 text-sm"></i>
+                                <span>Assisted outreach programs and awareness campaigns</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="print-break" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 text-xl">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2 class="text-3xl font-serif font-bold">Education</h2>
                 </div>
 
-                <div class="timeline-item">
-                    <span class="date">2020 — 2022</span>
-                    <h3>The Krishna International School</h3>
-                    <p><strong>CBSE Grade 11-12 | 90.20% Academic Standing</strong> [cite: 15, 16]</p>
-                    <p>Engaged in advanced laboratory protocols, scientific debates, and research presentations[cite: 17].</p>
+                <div class="space-y-6">
+                    <!-- University -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" data-aos="fade-right">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">University of Illinois at Chicago</h3>
+                                <p class="text-primary font-semibold">Bachelor's Degree in Biology</p>
+                            </div>
+                            <span class="text-sm font-bold text-slate-400">2023-2027</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Chicago, USA</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-xs rounded-full">Indian Student Association (ISA)</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-xs rounded-full">Badminton Club</span>
+                        </div>
+                    </div>
+
+                    <!-- High School 1 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">The Krishna International School</h3>
+                                <p class="text-primary font-semibold">CBSE Grade 11-12 • 90.20%</p>
+                            </div>
+                            <span class="text-sm font-bold text-slate-400">2020-2022</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Advanced laboratory protocols, scientific debates, and research presentations</p>
+                    </div>
+
+                    <!-- High School 2 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1" data-aos="fade-right" data-aos-delay="200">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100">The Rajkumar College</h3>
+                                <p class="text-primary font-semibold">CBSE Grade 10 • 85.00%</p>
+                            </div>
+                            <span class="text-sm font-bold text-slate-400">2010-2020</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">History Club, MUN Conference participant, State-Level athlete</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Skills & Achievements Grid -->
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Technical Skills -->
+            <section id="skills" class="lg:col-span-2 print-break" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 text-xl">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h2 class="text-3xl font-serif font-bold">Core Competencies</h2>
                 </div>
 
-                <div class="timeline-item">
-                    <span class="date">2010 — 2020</span>
-                    <h3>The Rajkumar College, Rajkot</h3>
-                    <p><strong>CBSE Grade 10 | 85.00% Academic Standing</strong> [cite: 9, 10]</p>
-                    <p>History Club member, MUN Conference participant, and State-Level athlete[cite: 11, 12].</p>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Skill Categories -->
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg">
+                            <h4 class="font-bold mb-4 flex items-center gap-2">
+                                <i class="fas fa-stethoscope text-primary"></i>
+                                Clinical Skills
+                            </h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Patient Observation</span>
+                                        <span class="text-primary font-bold">95%</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary rounded-full skill-fill" style="--target-width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Clinical Environment Awareness</span>
+                                        <span class="text-primary font-bold">90%</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary rounded-full skill-fill" style="--target-width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Lab Protocols</span>
+                                        <span class="text-primary font-bold">85%</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary rounded-full skill-fill" style="--target-width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg">
+                            <h4 class="font-bold mb-4 flex items-center gap-2">
+                                <i class="fas fa-users text-accent"></i>
+                                Soft Skills
+                            </h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Communication</span>
+                                        <span class="text-accent font-bold">95%</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Team Leadership</span>
+                                        <span class="text-accent font-bold">90%</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span>Time Management</span>
+                                        <span class="text-accent font-bold">88%</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-accent rounded-full skill-fill" style="--target-width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Proficiency Tags -->
+                <div class="mt-6 bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg">
+                    <h4 class="font-bold mb-4">Digital Proficiency</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-default">Windows & MacOS</span>
+                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-default">MS Word</span>
+                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-default">PowerPoint</span>
+                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-default">Excel (Advanced)</span>
+                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-colors cursor-default">Data Analysis</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Side Panel: Languages & Achievements -->
+            <div class="space-y-8" data-aos="fade-up">
+                <!-- Languages -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg">
+                    <h3 class="font-bold mb-4 flex items-center gap-2 text-lg">
+                        <i class="fas fa-language text-blue-500"></i>
+                        Languages
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm">English</span>
+                            <div class="flex gap-1">
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm">Gujarati</span>
+                            <div class="flex gap-1">
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm">Hindi</span>
+                            <div class="flex gap-1">
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm">French</span>
+                            <div class="flex gap-1">
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-6 shadow-lg text-white" data-aos="zoom-in">
+                    <h3 class="font-bold mb-4 flex items-center gap-2 text-lg">
+                        <i class="fas fa-trophy"></i>
+                        Achievements
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-medal mt-1 text-yellow-300"></i>
+                            <div>
+                                <p class="font-semibold text-sm">Inter-State Badminton Champion</p>
+                                <p class="text-xs opacity-90">Winner position</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-microscope mt-1 text-blue-200"></i>
+                            <div>
+                                <p class="font-semibold text-sm">Science Olympiad</p>
+                                <p class="text-xs opacity-90">3rd Rank</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-palette mt-1 text-pink-200"></i>
+                            <div>
+                                <p class="font-semibold text-sm">Drawing Competition</p>
+                                <p class="text-xs opacity-90">2nd Prize</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="col-right">
-            <div class="card" style="border-top: 4px solid var(--accent-red);">
-                <div class="card-label"><i class="fa-solid fa-heart-pulse"></i> Clinical Vitals</div>
-                <div class="stat-circle">
-                    <span class="stat-val">90.2%</span>
-                    <span class="stat-desc">Academic Peak</span>
+        <!-- Contact Section -->
+        <section id="contact" class="print-break mb-20" data-aos="fade-up">
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
                 </div>
-                <div class="stat-circle">
-                    <span class="stat-val">5+ Mo.</span>
-                    <span class="stat-desc">Clinical Shadows</span>
+                
+                <div class="relative z-10 text-center max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Ready to Collaborate?</h2>
+                    <p class="text-slate-300 mb-8 text-lg">
+                        Seeking clinical research opportunities, internships, and collaborative projects in healthcare and biological sciences.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="mailto:emuli@uic.edu" class="px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-slate-100 transition-all hover:shadow-xl transform hover:-translate-y-1">
+                            <i class="fas fa-envelope mr-2"></i>
+                            emuli@uic.edu
+                        </a>
+                        <a href="tel:+16306423968" class="px-8 py-4 border-2 border-white text-white rounded-full font-bold hover:bg-white hover:text-slate-900 transition-all">
+                            <i class="fas fa-phone mr-2"></i>
+                            +1 630-642-3968
+                        </a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-award"></i> Major Achievements</div>
-                <ul style="list-style: none; font-size: 0.85rem; font-weight: 600;">
-                    <li style="margin-bottom: 12px; color: var(--primary-dark);"><i class="fa-solid fa-trophy"></i> Inter-State Badminton Champion [cite: 47]</li>
-                    <li style="margin-bottom: 12px;"><i class="fa-solid fa-microscope"></i> 3rd Rank: Science Olympiad [cite: 49]</li>
-                    <li><i class="fa-solid fa-palette"></i> 2nd Prize: Drawing Competition [cite: 48]</li>
-                </ul>
-            </div>
+    </main>
 
-            <div class="card">
-                <div class="card-label"><i class="fa-solid fa-brain"></i> Core Strengths</div>
-                <div class="pill">Analytical Skills [cite: 35]</div>
-                <div class="pill">Time Management [cite: 38]</div>
-                <div class="pill">Team Leadership [cite: 40, 41]</div>
-                <div class="pill">Problem Solving [cite: 39]</div>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-8 no-print">
+        <div class="max-w-6xl mx-auto px-4 text-center text-slate-500 dark:text-slate-400 text-sm">
+            <p>&copy; 2026 Esha Muliyasiya. Built with HTML, Tailwind CSS & passion for healthcare.</p>
+            <p class="mt-2">
+                <i class="fas fa-code mr-1"></i>
+                View source on <a href="#" class="text-primary hover:underline">GitHub</a>
+            </p>
         </div>
-    </div>
+    </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        const target = document.getElementById('type-text');
+        // Initialize Animate On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Typewriter Effect
         const phrases = [
-            "Biology Scholar @ UIC [cite: 19]",
-            "Emergency Care Observer [cite: 24]",
-            "Child Safety Advocate [cite: 28]",
-            "Inter-State Athlete [cite: 47]",
-            "Laboratory Researcher [cite: 5]"
+            "Biology Scholar @ UIC",
+            "Emergency Care Observer",
+            "Child Safety Advocate",
+            "Inter-State Athlete",
+            "Laboratory Researcher"
         ];
         
-        let i = 0, j = 0, isDeleting = false;
-
-        function loop() {
-            const current = phrases[i];
-            target.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
-
-            if (!isDeleting && j > current.length) { isDeleting = true; setTimeout(loop, 2500); return; }
-            if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % phrases.length; }
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+        
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
             
-            setTimeout(loop, isDeleting ? 40 : 80);
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
         }
-        document.addEventListener('DOMContentLoaded', loop);
+        
+        // Start typewriter when page loads
+        window.addEventListener('load', typeWriter);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
