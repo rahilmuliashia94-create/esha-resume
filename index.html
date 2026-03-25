@@ -3,332 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esha Muliyasiya | Pre-Medical Portfolio</title>
+    <title>Esha Muliyasiya | Clinical Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --medical-dark: #0f172a;
-            --medical-blue: #0ea5e9;
-            --medical-teal: #14b8a6;
-            --bg-soft: #f8fafc;
+            --primary: #0ea5e9;
+            --slate-900: #0f172a;
+            --slate-100: #f1f5f9;
             --white: #ffffff;
-            --text-main: #334155;
-            --text-dim: #64748b;
-            --glass: rgba(255, 255, 255, 0.9);
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.05);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-soft);
-            color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 100vh;
         }
 
-        h1, h2, h3 { font-family: 'Lexend', sans-serif; color: var(--medical-dark); }
-
-        /* --- Navigation --- */
-        nav {
-            position: fixed;
+        /* --- Sidebar --- */
+        aside {
+            background: var(--white);
+            border-right: 1px solid var(--slate-100);
+            padding: 40px 24px;
+            position: sticky;
             top: 0;
-            width: 100%;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 10%;
+            flex-direction: column;
+            z-index: 100;
         }
 
-        .logo { font-weight: 700; color: var(--medical-blue); font-size: 1.2rem; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 2rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { color: var(--medical-blue); }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 160px 10% 100px;
-            background: radial-gradient(circle at top right, #e0f2fe, transparent), 
-                        radial-gradient(circle at bottom left, #f0fdfa, transparent);
-            text-align: left;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hero-content { max-width: 650px; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero h1 span { color: var(--medical-blue); }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 2rem; }
-
-        .btn-primary {
-            background: var(--medical-dark);
+        .profile-id {
+            background: var(--slate-900);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
+            padding: 24px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-id h1 { font-size: 1.1rem; }
+        .profile-id p { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--primary); }
+
+        /* --- Main Content --- */
+        main { padding: 80px 60px; }
+
+        /* --- HERO SECTION WITH TYPEWRITER --- */
+        .hero {
+            margin-bottom: 60px;
+            min-height: 200px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        .typewriter-container {
+            font-size: 1.5rem;
+            color: #64748b;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        /* The Cursor Effect */
+        #typewriter-text {
+            color: var(--primary);
+            font-weight: 700;
+            border-right: 3px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* --- Bento Grid Elements --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            padding: 32px;
+            border-radius: 32px;
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .section-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
             align-items: center;
             gap: 10px;
-            transition: 0.3s;
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
 
-        /* --- Container --- */
-        .container { padding: 80px 10%; }
-
-        .section-header { margin-bottom: 3rem; }
-        .section-header h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .section-header .line { width: 60px; height: 4px; background: var(--medical-teal); border-radius: 2px; }
-
-        /* --- Bento Grid / Cards --- */
-        .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-        .card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-lg);
-            transition: 0.3s;
-        }
-        .card:hover { border-color: var(--medical-blue); }
-
-        /* Experience Items */
-        .col-8 { grid-column: span 8; }
-        .col-4 { grid-column: span 4; }
-        .col-6 { grid-column: span 6; }
-
-        .exp-item { margin-bottom: 2rem; position: relative; padding-left: 20px; border-left: 2px solid var(--border); }
-        .exp-item h3 { font-size: 1.2rem; margin-bottom: 4px; }
-        .exp-item .meta { color: var(--medical-blue); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        
-        /* --- Skills Dashboard --- */
-        .skill-group { margin-bottom: 1.5rem; }
-        .skill-group h4 { font-size: 0.9rem; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
-            background: var(--bg-soft);
-            padding: 6px 14px;
+            background: var(--slate-100);
+            padding: 6px 12px;
             border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 4px;
+            display: inline-block;
         }
 
-        /* --- Achievement Badges --- */
-        .achievement-pill {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid var(--border);
-            margin-bottom: 15px;
-        }
-        .achievement-pill i { font-size: 1.5rem; color: #f59e0b; }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--medical-dark);
-            color: #94a3b8;
-            padding: 80px 10% 40px;
-            text-align: left;
-        }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-        .footer-logo { color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; display: block; }
-        .footer-contact a { color: white; text-decoration: none; display: block; margin-bottom: 10px; }
-
-        @media (max-width: 992px) {
-            .col-8, .col-4, .col-6 { grid-column: span 12; }
-            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
-            .hero-content { margin-bottom: 50px; }
+        @media (max-width: 1024px) {
+            body { grid-template-columns: 1fr; }
+            aside { display: none; }
+            main { padding: 40px 20px; }
+            .hero h1 { font-size: 2.5rem; }
+            .bento-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">ESHA.M</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#clinical">Clinical</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
+    <aside>
+        <div class="profile-id">
+            <h1>ESHA MULIYASIYA</h1>
+            <p>BIO_ID: 60523_UIC</p>
         </div>
-    </nav>
+        <div style="flex-grow: 1;">
+            <p style="font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 20px;">Navigation</p>
+            <p style="margin-bottom: 15px; font-weight: 600; color: var(--primary);">01. Dashboard</p>
+            <p style="margin-bottom: 15px; font-weight: 600; color: #64748b;">02. Experience</p>
+            <p style="margin-bottom: 15px; font-weight: 600; color: #64748b;">03. Skills</p>
+        </div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">
+            <p><i class="fa-solid fa-envelope"></i> emuli@uic.edu</p>
+            <p><i class="fa-solid fa-phone"></i> +1 630-642-3968</p>
+        </div>
+    </aside>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Aspiring Physician & <span>Biology Researcher</span></h1>
-            <p>University of Illinois at Chicago student with a focus on clinical observation, laboratory precision, and child safety advocacy.</p>
-            <a href="mailto:emuli@uic.edu" class="btn-primary">
-                Contact Me <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
-        <div class="hero-visual">
-            <i class="fa-solid fa-dna" style="font-size: 150px; color: #e2e8f0; opacity: 0.5;"></i>
-        </div>
-    </header>
+    <main>
+        <section class="hero">
+            <h1>Esha Muliyasiya</h1>
+            <div class="typewriter-container">
+                I am a&nbsp;<span id="typewriter-text"></span>
+            </div>
+        </section>
 
-    <main class="container">
-        
-        <div class="grid">
-            <section class="card col-8" id="about">
-                <div class="section-header">
-                    <h2>Professional Profile</h2>
-                    <div class="line"></div>
-                </div>
-                <p style="font-size: 1.1rem; color: var(--text-main);">
-                    Self-driven Biology student at UIC with a verified track record of high academic performance. 
-                    Possesses hands-on experience in providing detailed clinical observations within emergency care 
-                    environments and performing rigorous laboratory protocols. Multilingual and highly adaptable, 
-                    I excel in team-based healthcare settings where multi-tasking and analytical problem-solving are critical.
+        <div class="bento-grid">
+            <div class="card">
+                <h2 class="section-header"><i class="fa-solid fa-user-doctor" style="color:var(--primary)"></i> Profile</h2>
+                <p style="line-height: 1.7; color: #475569;">
+                    Self-driven Biology student at UIC with a verified track record in clinical observation and laboratory research. 
+                    I bridge the gap between rigorous scientific protocol and compassionate community advocacy.
                 </p>
-            </section>
+            </div>
 
-            <section class="card col-4" id="skills">
-                <div class="section-header">
-                    <h2>Core Skills</h2>
-                    <div class="line"></div>
-                </div>
-                
-                <div class="skill-group">
-                    <h4>Clinical & Lab</h4>
-                    <div class="skill-tags">
-                        <span class="tag">ED Observation</span>
-                        <span class="tag">Lab Protocols</span>
-                        <span class="tag">Patient Intake</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Languages</h4>
-                    <div class="skill-tags">
-                        <span class="tag">English</span>
-                        <span class="tag">Gujarati</span>
-                        <span class="tag">Hindi</span>
-                        <span class="tag">French</span>
-                    </div>
-                </div>
-
-                <div class="skill-group">
-                    <h4>Software</h4>
-                    <div class="skill-tags">
-                        <span class="tag">MS Excel</span>
-                        <span class="tag">PowerPoint</span>
-                        <span class="tag">Windows/macOS</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card col-6" id="clinical">
-                <div class="section-header">
-                    <h2>Experience</h2>
-                    <div class="line"></div>
-                </div>
-
-                <div class="exp-item">
-                    <span class="meta">Ashirvad Hospital | Aug 2022 - Nov 2022</span>
-                    <h3>Emergency Dept. Observer</h3>
-                    <p>Documented emergency care workflows and shadowed triage procedures in a high-volume environment.</p>
-                </div>
-
-                <div class="exp-item">
-                    <span class="meta">Leuva Patel Trust | Jul 2022 - Dec 2022</span>
-                    <h3>Volunteer Advocacy</h3>
-                    <p>Active participant in movements dedicated to eradicating violence against children and advocating for safety.</p>
-                </div>
-            </section>
-
-            <section class="card col-6" id="education">
-                <div class="section-header">
-                    <h2>Education</h2>
-                    <div class="line"></div>
-                </div>
-
-                <div class="exp-item">
-                    <span class="meta">UIC | 2023 - 2027</span>
-                    <h3>B.S. in Biology</h3>
-                    <p>Focus on Biological Sciences. Member of ISA and UIC Badminton Club.</p>
-                </div>
-
-                <div class="exp-item">
-                    <span class="meta">Krishna International | 2020 - 2022</span>
-                    <h3>High School (CBSE)</h3>
-                    <p>Graduated with 90.2% academic standing. Focused on laboratory research and debates.</p>
-                </div>
-            </section>
-
-            <section class="col-12" style="grid-column: span 12;">
-                <div class="section-header">
-                    <h2>Distinctions</h2>
-                    <div class="line"></div>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                    <div class="achievement-pill">
-                        <i class="fa-solid fa-trophy"></i>
-                        <div>
-                            <strong>Inter-State Champion</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-dim);">Badminton Tournament Winner</p>
-                        </div>
-                    </div>
-                    <div class="achievement-pill">
-                        <i class="fa-solid fa-microscope"></i>
-                        <div>
-                            <strong>3rd Rank - Olympiad</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-dim);">Science Olympiad Distinction</p>
-                        </div>
-                    </div>
-                    <div class="achievement-pill">
-                        <i class="fa-solid fa-palette"></i>
-                        <div>
-                            <strong>State Level Honor</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-dim);">2nd Prize in Drawing Competition</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div class="card">
+                <h2 class="section-header"><i class="fa-solid fa-flask" style="color:var(--primary)"></i> Skills</h2>
+                <div class="tag">Laboratory Safety</div>
+                <div class="tag">Clinical Intake</div>
+                <div class="tag">Data Analysis</div>
+                <div class="tag">Multitasking</div>
+                <div class="tag">Fluent English</div>
+                <div class="tag">Fluent Hindi</div>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <span class="footer-logo">ESHA MULIYASIYA</span>
-                <p>Committed to the advancement of medicine through biological research and patient advocacy.</p>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <a href="mailto:emuli@uic.edu">emuli@uic.edu</a>
-                <a href="tel:+16306423968">+1 630 642 3968</a>
-            </div>
-            <div class="footer-contact">
-                <h4>Location</h4>
-                <p>Oakbrook, Illinois<br>60523</p>
-            </div>
-        </div>
-        <div style="border-top: 1px solid #334155; padding-top: 20px; font-size: 0.8rem;">
-            &copy; 2026 Esha Muliyasiya | Pre-Med Portfolio
-        </div>
-    </footer>
+    <script>
+        const textElement = document.getElementById('typewriter-text');
+        const phrases = [
+            "Biology Major @ UIC.",
+            "Pre-Medicine Track Student.",
+            "Clinical Observer.",
+            "Laboratory Researcher.",
+            "Public Health Advocate.",
+            "Badminton Champion."
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                // Remove character
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50; // Faster when deleting
+            } else {
+                // Add character
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            // Logic for switching states
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at the end of the phrase
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before starting next phrase
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start the animation
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
 
 </body>
 </html>
