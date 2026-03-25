@@ -4,102 +4,223 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esha Muliyasiya - Aspiring Medical Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-color: #0056b3; /* Medical Blue */
-            --secondary-color: #f4f8fb;
-            --text-color: #333;
-            --heading-color: #222;
+            --primary-color: #0056b3; 
+            --primary-gradient: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            --secondary-color: #f8fafc;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --card-bg: #ffffff;
+            --accent-color: #38bdf8;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            background-color: #ffffff;
+            background-color: var(--secondary-color);
         }
+
         header {
-            background-color: var(--primary-color);
+            background: var(--primary-gradient);
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
+
         header p {
-            font-size: 1.2rem;
-            margin: 10px 0 0 0;
+            font-size: 1.25rem;
+            margin: 15px 0 0 0;
             opacity: 0.9;
+            font-weight: 300;
         }
+
         nav {
-            background-color: #004494;
+            background-color: white;
             display: flex;
             justify-content: center;
-            padding: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
         }
+
         nav a {
-            color: white;
+            color: var(--heading-color);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            margin: 5px 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
         }
+
         nav a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
+            transform: translateY(-2px);
         }
+
+        nav a i {
+            margin-right: 5px;
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
+
         section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: var(--secondary-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            scroll-margin-top: 80px; /* Adjusts for sticky nav */
         }
+
         h2 {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 5px;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
             margin-top: 0;
+            margin-bottom: 25px;
+            display: inline-block;
         }
+
+        p.profile-text {
+            font-size: 1.1rem;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
         .item {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
             margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
         }
+
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
         .item h3 {
             margin: 0 0 5px 0;
             color: var(--heading-color);
+            font-size: 1.25rem;
         }
+
         .date {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
             font-size: 0.9rem;
+            display: inline-block;
+            background-color: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 20px;
         }
+
         ul {
-            margin-top: 5px;
+            margin-top: 10px;
             padding-left: 20px;
         }
+
+        li {
+            margin-bottom: 8px;
+        }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .skill-card h3 {
+            margin-top: 0;
+            color: var(--heading-color);
+        }
+
+        .achievements-list {
+            background-color: var(--card-bg);
+            padding: 25px 25px 25px 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: var(--text-color);
+            padding: 40px 20px;
+            background-color: var(--heading-color);
             color: white;
             margin-top: 40px;
         }
+
+        footer h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
         .contact-info a {
-            color: #66b2ff;
+            color: var(--accent-color);
             text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .contact-info i {
+            margin-right: 8px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -107,28 +228,28 @@
 
     <header>
         <h1>Esha Muliyasiya</h1>
-        <p>Aspiring Medical Professional | Biology Major at UIC</p>
+        <p><i class="fa-solid fa-user-doctor"></i> Aspiring Medical Professional | Biology Major at UIC</p>
     </header>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Clinical & Volunteer Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#achievements">Achievements</a>
+        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="#experience"><i class="fa-solid fa-stethoscope"></i> Clinical Experience</a>
+        <a href="#skills"><i class="fa-solid fa-list-check"></i> Skills</a>
+        <a href="#achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
     </nav>
 
     <div class="container">
         <section id="about">
             <h2>Professional Profile</h2>
-            <p>Self-driven and motivated university student with a great academic performance. Demonstrated experience in providing accurate observations, performing laboratory tasks, and operating within a healthcare center environment. Known for extensive communication skills, extraordinary multi-tasking abilities, and working seamlessly within teams.</p>
+            <p class="profile-text">Self-driven and motivated university student with a great academic performance. Demonstrated experience in providing accurate observations, performing laboratory tasks, and operating within a healthcare center environment. Known for extensive communication skills, extraordinary multi-tasking abilities, and working seamlessly within teams.</p>
         </section>
 
         <section id="education">
             <h2>Education</h2>
             <div class="item">
                 <h3>University of Illinois at Chicago (UIC) - Chicago, IL</h3>
-                <div class="date">August 2023 – August 2027</div>
+                <div class="date"><i class="fa-regular fa-calendar"></i> August 2023 – August 2027</div>
                 <ul>
                     <li><strong>Major:</strong> Biology</li>
                     <li><strong>Activities:</strong> Member of Indian Student Association (ISA), Badminton Club</li>
@@ -137,7 +258,7 @@
             
             <div class="item">
                 <h3>The Krishna International School - Rajkot, Gujarat</h3>
-                <div class="date">June 2020 – July 2022</div>
+                <div class="date"><i class="fa-regular fa-calendar"></i> June 2020 – July 2022</div>
                 <ul>
                     <li>CBSE Board 11th and 12th Grade</li>
                     <li><strong>Percentage:</strong> 90.20%</li>
@@ -147,7 +268,7 @@
 
             <div class="item">
                 <h3>The Rajkumar College - Rajkot, Gujarat</h3>
-                <div class="date">March 2010 – April 2020</div>
+                <div class="date"><i class="fa-regular fa-calendar"></i> March 2010 – April 2020</div>
                 <ul>
                     <li>CBSE Board till 10th Grade (85%)</li>
                     <li><strong>Activities:</strong> History Club, Model United Nations, Regional & State Level Badminton Tournaments.</li>
@@ -160,7 +281,7 @@
             <div class="item">
                 <h3>Observer in Emergency Department</h3>
                 <p><strong>Ashirvad Hospital | Rajkot, Gujarat</strong></p>
-                <div class="date">August 2022 – November 2022</div>
+                <div class="date"><i class="fa-regular fa-calendar"></i> August 2022 – November 2022</div>
                 <ul>
                     <li>Gained firsthand exposure to a fast-paced healthcare environment by shadowing medical professionals.</li>
                     <li>Observed emergency procedures, patient intake, and acute care protocols.</li>
@@ -170,7 +291,7 @@
             <div class="item">
                 <h3>Volunteer Child Advocacy Worker</h3>
                 <p><strong>NGO Leuva Patel Vikas Trust</strong></p>
-                <div class="date">July 2022 – December 2022</div>
+                <div class="date"><i class="fa-regular fa-calendar"></i> July 2022 – December 2022</div>
                 <ul>
                     <li>Participated in a movement to eradicate violence against children and child sexual abuse.</li>
                     <li>Engaged in community outreach and awareness programs.</li>
@@ -181,29 +302,29 @@
         <section id="skills">
             <h2>Skills</h2>
             <div class="skills-grid">
-                <div>
-                    <h3>Interpersonal Skills</h3>
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-users"></i> Interpersonal</h3>
                     <ul>
                         <li>Analytical & Problem Solving</li>
                         <li>Communication & Active Listening</li>
                         <li>Multi-Tasking & Time Management</li>
-                        <li>Leadership Quality & Team Player</li>
+                        <li>Leadership & Team Collaboration</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Languages</h3>
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-language"></i> Languages</h3>
                     <ul>
-                        <li>English</li>
-                        <li>Gujarati</li>
-                        <li>Hindi</li>
-                        <li>French</li>
+                        <li>English (Fluent)</li>
+                        <li>Gujarati (Native)</li>
+                        <li>Hindi (Fluent)</li>
+                        <li>French (Basic/Conversational)</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Technical Skills</h3>
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-laptop-code"></i> Technical</h3>
                     <ul>
                         <li>Proficient in Windows & macOS</li>
-                        <li>Microsoft Word, PowerPoint, Excel</li>
+                        <li>Microsoft Office Suite (Word, PowerPoint, Excel)</li>
                         <li>Laboratory Safety & Protocols</li>
                     </ul>
                 </div>
@@ -212,7 +333,7 @@
 
         <section id="achievements">
             <h2>Achievements</h2>
-            <ul>
+            <ul class="achievements-list">
                 <li><strong>Sports:</strong> Won Inter-State Badminton Tournament.</li>
                 <li><strong>Academics:</strong> 3rd Rank in the Science Olympiad.</li>
                 <li><strong>Arts:</strong> 2nd Prize in State Drawing Competition.</li>
@@ -221,13 +342,13 @@
     </div>
 
     <footer>
-        <h3>Contact Information</h3>
+        <h3>Let's Connect</h3>
         <p class="contact-info">
-            1 Hampton Drive, Oakbrook, Illinois (60523)<br>
-            Phone: <a href="tel:+16306423968">+1 (630) 642-3968</a> | 
-            Email: <a href="mailto:emuli@uic.edu">emuli@uic.edu</a>
+            <i class="fa-solid fa-location-dot"></i> 1 Hampton Drive, Oakbrook, Illinois (60523)<br><br>
+            <i class="fa-solid fa-phone"></i> <a href="tel:+16306423968">+1 (630) 642-3968</a> | 
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:emuli@uic.edu">emuli@uic.edu</a>
         </p>
-        <p>&copy; 2024 Esha Muliyasiya. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2026 Esha Muliyasiya. All Rights Reserved.</p>
     </footer>
 
 </body>
